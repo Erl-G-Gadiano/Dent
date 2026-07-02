@@ -1,0 +1,52 @@
+<div class="card shadow-sm mb-4">
+  <div class="card-body">
+    <h2 class="h4">Dashboard</h2>
+    <p class="text-muted">Overview of clinic activity.</p>
+  </div>
+</div>
+
+<div class="row g-3">
+  <div class="col-md-3">
+    <div class="card shadow-sm border-primary">
+      <div class="card-body">
+        <h6 class="text-muted">Total Patients</h6>
+        <h3><%= stats.patients %></h3>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="card shadow-sm border-success">
+      <div class="card-body">
+        <h6 class="text-muted">Total Appointments</h6>
+        <h3><%= stats.appointments %></h3>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="card shadow-sm border-warning">
+      <div class="card-body">
+        <h6 class="text-muted">Revenue</h6>
+        <h3>$<%= stats.revenue %></h3>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="card shadow-sm border-danger">
+      <div class="card-body">
+        <h6 class="text-muted">Low Stock Items</h6>
+        <h3><%= stats.lowStock %></h3>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="card shadow-sm mt-4">
+  <div class="card-body">
+    <h5>Upcoming Appointments</h5>
+    <ul class="list-group list-group-flush">
+      <% stats.upcoming.forEach(item => { %>
+        <li class="list-group-item"><%= item.title %> - <%= new Date(item.appointment_date).toLocaleString() %> - <%= item.status %></li>
+      <% }) %>
+    </ul>
+  </div>
+</div>

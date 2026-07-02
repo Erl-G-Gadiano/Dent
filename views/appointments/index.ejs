@@ -1,0 +1,38 @@
+<div class="card shadow-sm">
+  <div class="card-body">
+    <h2 class="h4">Appointment Management</h2>
+    <form action="/appointments" method="POST" class="row g-2 mb-3">
+      <div class="col-md-3"><input class="form-control" name="patient_id" placeholder="Patient ID" required></div>
+      <div class="col-md-3"><input class="form-control" name="title" placeholder="Title" required></div>
+      <div class="col-md-3"><input class="form-control" name="appointment_date" type="datetime-local" required></div>
+      <div class="col-md-3"><textarea class="form-control" name="notes" placeholder="Notes"></textarea></div>
+      <div class="col-md-2"><button class="btn btn-primary">Create Appointment</button></div>
+    </form>
+
+    <table class="table table-striped">
+      <thead>
+        <tr><th>Patient</th><th>Title</th><th>Date</th><th>Status</th></tr>
+      </thead>
+      <tbody>
+        <% appointments.forEach(item => { %>
+          <tr>
+            <td><%= item.first_name %> <%= item.last_name %></td>
+            <td><%= item.title %></td>
+            <td><%= new Date(item.appointment_date).toLocaleString() %></td>
+            <td>
+              <form action="/appointments/<%= item.id %>/status" method="POST" class="d-flex gap-2">
+                <select name="status" class="form-select form-select-sm">
+                  <option value="Pending" <%= item.status === 'Pending' ? 'selected' : '' %>>Pending</option>
+                  <option value="Approved" <%= item.status === 'Approved' ? 'selected' : '' %>>Approved</option>
+                  <option value="Completed" <%= item.status === 'Completed' ? 'selected' : '' %>>Completed</option>
+                  <option value="Cancelled" <%= item.status === 'Cancelled' ? 'selected' : '' %>>Cancelled</option>
+                </select>
+                <button class="btn btn-sm btn-outline-secondary">Update</button>
+              </form>
+            </td>
+          </tr>
+        <% }) %>
+      </tbody>
+    </table>
+  </div>
+</div>

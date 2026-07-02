@@ -1,0 +1,33 @@
+<div class="card shadow-sm">
+  <div class="card-body">
+    <h2 class="h4">User Management</h2>
+    <form action="/users" method="POST" class="row g-2 mb-3">
+      <div class="col-md-2"><input class="form-control" name="name" placeholder="Name" required></div>
+      <div class="col-md-2"><input class="form-control" name="email" type="email" placeholder="Email" required></div>
+      <div class="col-md-2"><input class="form-control" name="password" type="password" placeholder="Password" required></div>
+      <div class="col-md-2"><input class="form-control" name="phone" placeholder="Phone"></div>
+      <div class="col-md-2">
+        <select class="form-select" name="role">
+          <option value="Admin">Admin</option>
+          <option value="Subadmin">Subadmin</option>
+          <option value="Client">Client</option>
+        </select>
+      </div>
+      <div class="col-md-2"><button class="btn btn-primary">Create User</button></div>
+    </form>
+
+    <table class="table table-striped">
+      <thead><tr><th>Name</th><th>Email</th><th>Role</th><th>Status</th></tr></thead>
+      <tbody>
+        <% users.forEach(userItem => { %>
+          <tr>
+            <td><%= userItem.name %></td>
+            <td><%= userItem.email %></td>
+            <td><%= userItem.role_name %></td>
+            <td><%= userItem.status %></td>
+          </tr>
+        <% }) %>
+      </tbody>
+    </table>
+  </div>
+</div>

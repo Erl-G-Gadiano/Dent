@@ -1,0 +1,31 @@
+<div class="card shadow-sm">
+  <div class="card-body">
+    <h2 class="h4">Patient Management</h2>
+    <form action="/patients" method="POST" class="row g-2 mb-3">
+      <div class="col-md-2"><input class="form-control" name="first_name" placeholder="First name" required></div>
+      <div class="col-md-2"><input class="form-control" name="last_name" placeholder="Last name" required></div>
+      <div class="col-md-2"><input class="form-control" name="email" placeholder="Email"></div>
+      <div class="col-md-2"><input class="form-control" name="phone" placeholder="Phone"></div>
+      <div class="col-md-2"><input class="form-control" name="date_of_birth" type="date"></div>
+      <div class="col-md-2"><input class="form-control" name="gender" placeholder="Gender"></div>
+      <div class="col-md-12"><textarea class="form-control" name="address" placeholder="Address"></textarea></div>
+      <div class="col-md-2"><button class="btn btn-primary">Add Patient</button></div>
+    </form>
+
+    <table class="table table-striped">
+      <thead>
+        <tr><th>Name</th><th>Email</th><th>Phone</th><th>Created</th></tr>
+      </thead>
+      <tbody>
+        <% patients.forEach(patient => { %>
+          <tr>
+            <td><%= patient.first_name %> <%= patient.last_name %></td>
+            <td><%= patient.email %></td>
+            <td><%= patient.phone %></td>
+            <td><%= new Date(patient.created_at).toLocaleDateString() %></td>
+          </tr>
+        <% }) %>
+      </tbody>
+    </table>
+  </div>
+</div>

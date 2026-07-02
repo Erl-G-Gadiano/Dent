@@ -1,0 +1,33 @@
+<div class="card shadow-sm">
+  <div class="card-body">
+    <h2 class="h4">System Settings</h2>
+    <form action="/settings" method="POST">
+      <div class="mb-3">
+        <label class="form-label">Clinic Name</label>
+        <input class="form-control" name="clinic_name" value="BrightSmile Dental Clinic">
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Dark Mode</label>
+        <select class="form-select" name="dark_mode">
+          <option value="true">Enabled</option>
+          <option value="false">Disabled</option>
+        </select>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Email Notifications</label>
+        <select class="form-select" name="email_notifications">
+          <option value="true">Enabled</option>
+          <option value="false">Disabled</option>
+        </select>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">SMS Notifications</label>
+        <select class="form-select" name="sms_notifications">
+          <option value="true">Enabled</option>
+          <option value="false">Disabled</option>
+        </select>
+      </div>
+      <button class="btn btn-primary">Save Settings</button>
+    </form>
+  </div>
+</div>

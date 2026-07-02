@@ -1,0 +1,13 @@
+<div class="card shadow-sm">
+  <div class="card-body">
+    <h2 class="h4">Reports</h2>
+    <div class="row g-3 mb-4">
+      <div class="col-md-3"><div class="card border-info"><div class="card-body"><h6>Total Appointments</h6><h3><%= stats.appointments %></h3></div></div></div>
+      <div class="col-md-3"><div class="card border-success"><div class="card-body"><h6>Completed Appointments</h6><h3><%= stats.completed %></h3></div></div></div>
+      <div class="col-md-3"><div class="card border-warning"><div class="card-body"><h6>New Patients</h6><h3><%= stats.patients %></h3></div></div></div>
+      <div class="col-md-3"><div class="card border-secondary"><div class="card-body"><h6>Inventory Usage</h6><h3><%= stats.inventory %></h3></div></div></div>
+    </div>
+    <button class="btn btn-outline-primary">Export PDF</button>
+    <button class="btn btn-outline-success">Export Excel</button>
+  </div>
+</div>
