@@ -1,3 +1,40 @@
-body { background: #f6f8fb; }
-.card { border-radius: 0.75rem; }
-.list-group-item.active, .list-group-item:hover { background: #0d6efd; color: white; }
+:root{
+	--bg:#f6f8fb;
+	--primary:#0b63d6;
+	--muted:#6c757d;
+	--card:#ffffff;
+	--accent:#0d6efd;
+}
+*{box-sizing:border-box}
+body{font-family:Segoe UI, Arial, sans-serif;background:var(--bg);margin:0;color:#222}
+.wrap{max-width:1100px;margin:0 auto;padding:0 16px;display:flex;align-items:center;justify-content:space-between}
+.site-header{background:var(--card);border-bottom:1px solid #e6e9ee;padding:12px 0}
+.brand{font-weight:700;color:var(--primary);text-decoration:none;font-size:1.1rem}
+.user-info{display:flex;gap:12px;align-items:center}
+.greeting{color:#444}
+.logout{background:transparent;border:1px solid #ddd;padding:6px 10px;border-radius:4px;text-decoration:none;color:#333}
+.main{display:flex;gap:20px;max-width:1100px;margin:20px auto;padding:0 16px}
+.sidebar{width:200px;background:var(--card);border:1px solid #eceff4;padding:12px;border-radius:8px}
+.sidebar ul{list-style:none;padding:0;margin:0}
+.sidebar a{text-decoration:none;color:#222;display:block;padding:8px;border-radius:4px}
+.sidebar a:hover{background:#f0f4ff}
+.content{flex:1}
+
+.dashboard-header h1{margin:0;font-size:1.5rem}
+.muted{color:var(--muted);margin-top:4px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px;margin-top:16px}
+.kpi{background:var(--card);padding:14px;border-radius:8px;border:1px solid #eef2f6}
+.kpi-title{color:var(--muted);font-size:0.9rem}
+.kpi-value{font-size:1.6rem;font-weight:700;margin-top:6px}
+
+.upcoming{margin-top:20px}
+.upcoming-item{background:var(--card);padding:10px;border-radius:6px;border:1px solid #eef2f6;margin-bottom:8px;display:flex;justify-content:space-between;gap:10px}
+.upcoming-item .date{color:var(--muted);margin-left:12px}
+.upcoming-item .status{background:#f0f4ff;padding:6px 8px;border-radius:6px;color:var(--primary);font-weight:600}
+
+/* responsive */
+@media (max-width:800px){
+	.main{flex-direction:column}
+	.sidebar{width:100%}
+}
+

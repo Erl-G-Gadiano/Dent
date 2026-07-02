@@ -1,52 +1,38 @@
-<div class="card shadow-sm mb-4">
-  <div class="card-body">
-    <h2 class="h4">Dashboard</h2>
-    <p class="text-muted">Overview of clinic activity.</p>
+<section class="dashboard">
+  <div class="dashboard-header">
+    <h1>Dashboard</h1>
+    <p class="muted">Overview of clinic activity.</p>
   </div>
-</div>
 
-<div class="row g-3">
-  <div class="col-md-3">
-    <div class="card shadow-sm border-primary">
-      <div class="card-body">
-        <h6 class="text-muted">Total Patients</h6>
-        <h3><%= stats.patients %></h3>
-      </div>
+  <div class="kpis">
+    <div class="kpi">
+      <div class="kpi-title">Total Patients</div>
+      <div class="kpi-value"><%= stats.patients %></div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-title">Total Appointments</div>
+      <div class="kpi-value"><%= stats.appointments %></div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-title">Revenue</div>
+      <div class="kpi-value">$<%= stats.revenue %></div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-title">Low Stock Items</div>
+      <div class="kpi-value"><%= stats.lowStock %></div>
     </div>
   </div>
-  <div class="col-md-3">
-    <div class="card shadow-sm border-success">
-      <div class="card-body">
-        <h6 class="text-muted">Total Appointments</h6>
-        <h3><%= stats.appointments %></h3>
-      </div>
-    </div>
-  </div>
-  <div class="col-md-3">
-    <div class="card shadow-sm border-warning">
-      <div class="card-body">
-        <h6 class="text-muted">Revenue</h6>
-        <h3>$<%= stats.revenue %></h3>
-      </div>
-    </div>
-  </div>
-  <div class="col-md-3">
-    <div class="card shadow-sm border-danger">
-      <div class="card-body">
-        <h6 class="text-muted">Low Stock Items</h6>
-        <h3><%= stats.lowStock %></h3>
-      </div>
-    </div>
-  </div>
-</div>
 
-<div class="card shadow-sm mt-4">
-  <div class="card-body">
-    <h5>Upcoming Appointments</h5>
-    <ul class="list-group list-group-flush">
+  <div class="upcoming">
+    <h2>Upcoming Appointments</h2>
+    <ul>
       <% stats.upcoming.forEach(item => { %>
-        <li class="list-group-item"><%= item.title %> - <%= new Date(item.appointment_date).toLocaleString() %> - <%= item.status %></li>
+        <li class="upcoming-item">
+          <strong><%= item.title %></strong>
+          <span class="date"><%= new Date(item.appointment_date).toLocaleString() %></span>
+          <span class="status"><%= item.status %></span>
+        </li>
       <% }) %>
     </ul>
   </div>
-</div>
+</section>
